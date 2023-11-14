@@ -9,7 +9,6 @@ sources:
         freshness:
           warn_after: { count: 90, period: day }
         loaded_at_field: "CAST(date_date as TIMESTAMP)"
-        
         identifier: raw_gz_sales
         description: Orders and products by date with quantity and revenue details (1 row per combination order - product)
         columns:
