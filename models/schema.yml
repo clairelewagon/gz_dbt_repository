@@ -3,7 +3,7 @@ version: 2
 sources:
   - name: raw
     schema: gz_raw_data
-    description: Dataset BigQuery contenant 3 tables
+    description: Dataset BigQuery contenant 3 sets
     tables:
       - name: sales
         freshness:
@@ -43,3 +43,34 @@ sources:
           - name: shipping_fee_1
           - name: logCost
           - name: ship_cost
+models:
+  - name: int_sales_margin.sql
+    description: breakdown of revenue, purchase cost and margin per order and product
+    tests:
+          - unique:
+              column_name: "(orders_id ||'-'|| products_id)"
+  - name: int_orders_margin.sql
+    description: breakdown of margin per order
+    columns:
+          - name: orders_id
+            description: Primary key of the table
+            tests:
+              - unique
+              - not_null
+  - name: int_orders_operational.sql
+    description: breakdown of operational margin per order
+    columns:
+          - name: orders_id
+            description: Primary key of the table
+            tests:
+              - unique
+              - not_null
+  - name: finance_days.sql
+    description: Dashboard for finance team with data per day incl avg basket
+    columns:
+          - name: date_date
+            description: Primary key of the table
+            tests:
+              - unique
+              - not_null
+
