@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: gz_raw_data
+    description: Dataset BigQuery contenant 3 tableaux
+    tables:
+      - name: sales
+        identifier: raw_gz_sales
+        description: Orders and products by date with quantity and revenue details
+        columns:
+          - name: date_date
+          - name: orders_id
+          - name: pdt_it
+          - name: revenue
+          - name: quantity
+      - name: product
+        identifier: raw_gz_product
+        description: Products id and purchase price
+        columns:
+          - name: products_id
+          - name: purchSE_PRICE
+      - name: ship
+        description: Orders id avec shipping fees, log cost and ship cost
+        identifier: raw_gz_ship
+        columns:
+          - name: orders_id
+          - name: shipping_fee
+          - name: shipping_fee_1
+          - name: logCost
+          - name: ship_cost
