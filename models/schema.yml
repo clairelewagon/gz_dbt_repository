@@ -44,12 +44,12 @@ sources:
           - name: logCost
           - name: ship_cost
 models:
-  - name: int_sales_margin.sql
+  - name: int_sales_margin
     description: breakdown of revenue, purchase cost and margin per order and product
     tests:
           - unique:
               column_name: "(orders_id ||'-'|| products_id)"
-  - name: int_orders_margin.sql
+  - name: int_orders_margin
     description: breakdown of margin per order
     columns:
           - name: orders_id
@@ -57,7 +57,7 @@ models:
             tests:
               - unique
               - not_null
-  - name: int_orders_operational.sql
+  - name: int_orders_operational
     description: breakdown of operational margin per order
     columns:
           - name: orders_id
@@ -65,7 +65,7 @@ models:
             tests:
               - unique
               - not_null
-  - name: finance_days.sql
+  - name: finance_days
     description: Dashboard for finance team with data per day incl avg basket
     columns:
           - name: date_date
