@@ -3,28 +3,43 @@ version: 2
 sources:
   - name: raw
     schema: gz_raw_data
-    description: Dataset BigQuery contenant 3 tableaux
+    description: Dataset BigQuery contenant 3 tables
     tables:
       - name: sales
+        freshness:
+          warn_after: { count: 90, period: day }
+        loaded_at_field: "CAST(date_date as TIMESTAMP)"
+        
         identifier: raw_gz_sales
-        description: Orders and products by date with quantity and revenue details
+        description: Orders and products by date with quantity and revenue details (1 row per combination order - product)
         columns:
           - name: date_date
           - name: orders_id
           - name: pdt_it
           - name: revenue
           - name: quantity
+        tests:
+          - unique:
+              column_name: "(orders_id ||'-'|| pdt_id)"
       - name: product
         identifier: raw_gz_product
-        description: Products id and purchase price
+        description: Products id and purchase price (1 row per product)
         columns:
           - name: products_id
+            description: Primary key of the table
+            tests:
+              - unique
+              - not_null
           - name: purchSE_PRICE
       - name: ship
-        description: Orders id avec shipping fees, log cost and ship cost
+        description: Orders id avec shipping fees, log cost and ship cost (1 row per order)
         identifier: raw_gz_ship
         columns:
           - name: orders_id
+            description: Primary key of the table
+            tests:
+              - unique
+              - not_null
           - name: shipping_fee
           - name: shipping_fee_1
           - name: logCost
