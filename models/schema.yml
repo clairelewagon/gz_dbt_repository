@@ -124,5 +124,20 @@ models:
               column_name: "(date_date ||'-'|| campaign_key)"
           - not_null:
               column_name: "(date_date ||'-'|| campaign_key)"
-    
+  - name: int_campaigns_day
+    description: Vue agglomérée des campagnes (couts, impression, clicks) par jour
+    columns:
+      - name: date_date
+        description: Primary key of the table
+        tests:
+          - unique
+          - not_null
+  - name: finance_campaigns_day
+    description: Vue agglomérée des chiffres du revenu à l'ads margin
+    columns:
+      - name: date_date
+        description: Primary key of the table
+        tests:
+          - unique
+          - not_null
 
