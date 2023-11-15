@@ -10,3 +10,4 @@ UNION ALL
 SELECT * 
 FROM {{ref("stg_raw__facebook")}}
 
+
