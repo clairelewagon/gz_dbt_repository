@@ -11,7 +11,7 @@ renamed as (
     select
         parcel_id,
         model_mame,
-        quantity
+        quantity AS qty,
 
     from source
 
