@@ -133,7 +133,15 @@ models:
           - unique
           - not_null
   - name: finance_campaigns_day
-    description: Vue agglomérée des chiffres du revenu à l'ads margin
+    description: Vue agglomérée des chiffres du revenu à l'ads margin par jour
+    columns:
+      - name: date_date
+        description: Primary key of the table
+        tests:
+          - unique
+          - not_null
+  - name: finance_campaigns_month
+    description: Vue agglomérée des chiffres du revenu à l'ads margin par mois
     columns:
       - name: date_date
         description: Primary key of the table
