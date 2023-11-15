@@ -46,4 +46,9 @@ models:
       +materialized: table
       finance:
         +schema: finance
+    circle_parcel:
+      +materialized: view
+      circle_parcel:
+        +schema: parcel_dbt_dev
+    
 

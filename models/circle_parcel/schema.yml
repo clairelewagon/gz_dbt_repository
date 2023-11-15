@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw_data_circle
+    description: Dataset BigQuery contenant les sets pour circle
+    tables:
+      - name: cc_parcel
+        identifier: raw_cc_parcel
+        description: Suivi des parcels circle
+      - name: cc_parcel_products
+        identifier: raw_cc_parcel_product
+        description: Suivi des parcels circle
+      
