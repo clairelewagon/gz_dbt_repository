@@ -43,6 +43,50 @@ sources:
           - name: shipping_fee_1
           - name: logCost
           - name: ship_cost
+      - name: adwords
+        description: Adwords campaigns
+        identifier: raw_gz_adwords
+        columns:
+          - name: date_date
+          - name: paid_source
+          - name: campaign_key
+          - name: camPGN_name
+          - name: ads_cost
+          - name: impression
+          - name: click
+      - name: bing
+        description: Bing campaigns
+        identifier: raw_gz_bing
+        columns:
+          - name: date_date
+          - name: paid_source
+          - name: campaign_key
+          - name: camPGN_name
+          - name: ads_cost
+          - name: impression
+          - name: cick
+      - name: criteo
+        description: Criteo campaigns
+        identifier: raw_gz_criteo
+        columns:
+          - name: date_date
+          - name: paid_source
+          - name: campaign_key
+          - name: camPGN_name
+          - name: ads_cost
+          - name: impression
+          - name: click
+      - name: facebook
+        description: Facebook campaigns
+        identifier: raw_gz_facebook
+        columns:
+          - name: date_date
+          - name: paid_source
+          - name: campaign_key
+          - name: camPGN_name
+          - name: ads_cost
+          - name: impression
+          - name: click
 models:
   - name: int_sales_margin
     description: breakdown of revenue, purchase cost and margin per order and product
@@ -73,4 +117,27 @@ models:
             tests:
               - unique
               - not_null
+  - name: int_campaigns
+    description: Vue agglomérée de toutes les campagnes
+    tests:
+          - unique:
+              column_name: "(date_date ||'-'|| campaign_key)"
+          - not_null:
+              column_name: "(date_date ||'-'|| campaign_key)"
+  - name: int_campaigns_day
+    description: Vue agglomérée des campagnes (couts, impression, clicks) par jour
+    columns:
+      - name: date_date
+        description: Primary key of the table
+        tests:
+          - unique
+          - not_null
+  - name: finance_campaigns_day
+    description: Vue agglomérée des chiffres du revenu à l'ads margin
+    columns:
+      - name: date_date
+        description: Primary key of the table
+        tests:
+          - unique
+          - not_null
 
