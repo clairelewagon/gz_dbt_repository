@@ -117,4 +117,12 @@ models:
             tests:
               - unique
               - not_null
+  - name: int_campaigns
+    description: Vue agglomérée de toutes les campagnes
+    tests:
+          - unique:
+              column_name: "(date_date ||'-'|| campaign_key)"
+          - not_null:
+              column_name: "(date_date ||'-'|| campaign_key)"
+    
 
