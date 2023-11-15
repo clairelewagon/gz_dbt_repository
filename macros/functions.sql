@@ -1,5 +1,5 @@
-{% macro margin_percent(revenue,purchase_cost)%}
+{% macro margin_percent(revenue,purchase_cost) %}
 
-(revenue-purchase_cost)/revenue
+ROUND(SAFE_DIVIDE((revenue-purchase_cost),revenue),2)
 
-{% endmacro%}
+{% endmacro %}
