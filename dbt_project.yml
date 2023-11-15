@@ -50,5 +50,6 @@ models:
       +materialized: view
       staging:
         schema: parcel_dbt_dev
+      
     
 
