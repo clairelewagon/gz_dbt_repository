@@ -1,0 +1,7 @@
+version: 2
+
+sources:
+  - name: circle_parcel
+    schema: raw_data_circle
+    description: Dataset Big Query contenant toutes les data Circle
+    tables:
