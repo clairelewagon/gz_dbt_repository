@@ -49,6 +49,6 @@ models:
     circle_parcel:
       +materialized: view
       staging:
-        +schema: parcel_dbt_dev
+        schema: parcel_dbt_dev
     
 
