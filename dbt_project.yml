@@ -48,7 +48,7 @@ models:
         +schema: finance
     circle_parcel:
       +materialized: view
-      circle_parcel:
+      staging:
         +schema: parcel_dbt_dev
     
 
